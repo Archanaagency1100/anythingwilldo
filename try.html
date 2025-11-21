@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>3-D Glass Frame Review Slider (Narrow)</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+  body {
+    background: radial-gradient(circle at top left, #e8f0ff, #cfd8dc);
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* ========== 3-D FRAME ========== */
+  .slider-frame {
+    position: relative;
+    width: 75%;          /* 👈 narrower percentage */
+    max-width: 550px;    /* 👈 smaller maximum width */
+    aspect-ratio: 16/9;
+    background: linear-gradient(145deg, #fefefe, #e1e1e1);
+    overflow: hidden;
+    box-shadow:
+      0 0 0 4px #1c2833,
+      0 0 0 10px #607d8b,
+      0 0 0 16px #b0bec5,
+      inset 4px 4px 8px rgba(255,255,255,0.7),
+      inset -4px -4px 8px rgba(0,0,0,0.5),
+      5px 8px 25px rgba(0,0,0,0.6);
+    transition: box-shadow 0.5s ease;
+  }
+
+  .slider-frame:hover {
+    box-shadow:
+      0 0 0 4px #263238,
+      0 0 0 10px #78909c,
+      0 0 0 16px #cfd8dc,
+      inset 3px 3px 6px rgba(255,255,255,0.8),
+      inset -3px -3px 6px rgba(0,0,0,0.4),
+      6px 10px 30px rgba(0,0,0,0.6);
+  }
+
+  /* moving glass reflection */
+  .slider-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,
+      rgba(255,255,255,0.1) 0%,
+      rgba(255,255,255,0.35) 40%,
+      rgba(255,255,255,0.1) 80%);
+    background-size: 200% 100%;
+    animation: glassShine 8s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes glassShine {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* ========== SLIDER ========== */
+  .slider-track {
+    display: flex;
+    transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+    height: 100%;
+  }
+
+  .review-card {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(180deg, #ffffff, #f3f6f9);
+  }
+
+  .review-card img {
+    width: clamp(70px, 15%, 100px);
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 4px solid #607d8b;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    margin-right: 1.25rem;
+  }
+
+  .review-content { text-align: left; }
+
+  .review-content h4 {
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 0.25rem;
+  }
+
+  .review-content .location {
+    font-size: 0.85rem;
+    color: #546e7a;
+    margin-bottom: 0.5rem;
+  }
+
+  .review-content p {
+    font-size: 0.9rem;
+    color: #37474f;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 768px) {
+    .review-card {
+      padding: 1rem;
+      flex-direction: column;
+      text-align: center;
+    }
+    .review-card img { margin: 0 0 1rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="slider-frame">
+  <div class="slider-track" id="sliderTrack">
+
+    <div class="review-card">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Archana Singh" />
+      <div class="review-content">
+        <h4>Archana Singh</h4>
+        <div class="location">India, Maharashtra</div>
+        <p>"This NGO gave me hope again. The compassion and support they provide changed everything for me."</p>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Rohit Sharma" />
+      <div class="review-content">
+        <h4>Rohit Sharma</h4>
+        <div class="location">India, Delhi</div>
+        <p>"The most heartfelt and genuine work I’ve ever witnessed. They’re truly changing lives every day."</p>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Priya Mehta" />
+      <div class="review-content">
+        <h4>Priya Mehta</h4>
+        <div class="location">India, Karnataka</div>
+        <p>"Their dedication to uplifting children and families is beyond words. I’m grateful to be part of it."</p>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <img src="https://randomuser.me/api/portraits/men/64.jpg" alt="Arjun Nair" />
+      <div class="review-content">
+        <h4>Arjun Nair</h4>
+        <div class="location">India, Kerala</div>
+        <p>"Their mission and transparency are unmatched. The impact they create speaks for itself."</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const track = document.getElementById("sliderTrack");
+  const cards = document.querySelectorAll(".review-card");
+  let index = 0;
+
+  const cloneCount = 2;
+  for (let i = 0; i < cloneCount; i++) {
+    const clone = cards[i].cloneNode(true);
+    track.appendChild(clone);
+  }
+
+  function slideNext() {
+    const total = track.children.length;
+    index++;
+    track.style.transition = "transform 1s ease-in-out";
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    if (index >= total - cloneCount) {
+      setTimeout(() => {
+        track.style.transition = "none";
+        index = 0;
+        track.style.transform = "translateX(0)";
+      }, 1100);
+    }
+  }
+
+  setInterval(slideNext, 4000);
+</script>
+</body>
+</html>

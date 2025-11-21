@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Touch of Talent – Let’s Connect</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #222D3E;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: linear-gradient(to bottom, rgba(139,147,168,0.4) 0%, rgba(255,255,255,1) 80%), 
+                  url('https://via.placeholder.com/1600x600') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #222D3E;
+    }
+    .hero h1 {
+      font-weight: 600;
+      font-size: 2.8rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    /* Info Boxes */
+    .info-boxes {
+      margin-top: -60px;
+      z-index: 2;
+      position: relative;
+    }
+    .info-card {
+      background-color: #D9D9D9;
+      padding: 30px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      color: #222D3E;
+    }
+    .info-card:hover {
+      background-color: #8B93A8;
+      color: #fff;
+    }
+    .info-card:first-child {
+      border-top-left-radius: 25px;
+    }
+    .info-card:last-child {
+      border-bottom-right-radius: 25px;
+    }
+
+    /* Toggle Section */
+    .toggle-section {
+      text-align: center;
+      margin-top: 60px;
+    }
+    .toggle-btn {
+      border: 2px solid #AE862E;
+      color: #AE862E;
+      background-color: transparent;
+      padding: 10px 30px;
+      border-radius: 50px;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+    .toggle-btn.active, .toggle-btn:hover {
+      background-color: #AE862E;
+      color: #fff;
+    }
+
+    /* Form Section */
+    .form-section {
+      max-width: 900px;
+      margin: 50px auto;
+      background-color: #D9D9D9;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+    .form-section.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .form-section h3 {
+      color: #222D3E;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .form-section p {
+      color: #222D3E;
+      margin-bottom: 25px;
+    }
+    .btn-submit {
+      background-color: #AE862E;
+      color: #fff;
+      border: none;
+      padding: 10px 30px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .btn-submit:hover {
+      background-color: #222D3E;
+      border: 2px solid #AE862E;
+    }
+
+    /* Map */
+    .map {
+      margin-top: 60px;
+    }
+    .map iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-top: 3px solid #AE862E;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div>
+      <h1>Start the Conversation</h1>
+      <p>Whether you’re hiring top digital talent or exploring your next career move — we’d love to hear from you.</p>
+    </div>
+  </section>
+
+  <!-- Info Boxes -->
+  <section class="container info-boxes">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="info-card">
+          <h5>Visit Us</h5>
+          <p>Level 3, Collins Street<br>Melbourne, VIC 3000</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="info-card">
+          <h5>Call Us</h5>
+          <p>+61 400 123 456<br>Mon – Fri, 9:00 am – 5:30 pm</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="info-card">
+          <h5>Mail Us</h5>
+          <p>hello@touchoftalent.com.au</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toggle -->
+  <section class="toggle-section">
+    <p class="fw-semibold mb-2">Are you a:</p>
+    <button class="toggle-btn active" id="jobSeekerBtn">Job Seeker</button>
+    <button class="toggle-btn" id="employerBtn">Employer</button>
+  </section>
+
+  <!-- Job Seeker Form -->
+  <section id="jobSeekerForm" class="form-section active">
+    <h3>Tell us about your next move.</h3>
+    <p>We represent digital marketing professionals ready to grow, lead, and make an impact.</p>
+    <form>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label>Your Name *</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Email Address *</label>
+          <input type="email" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Phone Number</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label>LinkedIn Profile Link *</label>
+          <input type="url" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Attach Your Resume *</label>
+          <input type="file" class="form-control" accept=".pdf,.doc,.docx" required>
+        </div>
+        <div class="col-md-6">
+          <label>Notice Period (in weeks)</label>
+          <input type="number" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label>Your Location (Suburb or Postcode) *</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Working Rights</label>
+          <select class="form-select">
+            <option>Australian Citizen</option>
+            <option>Australian PR</option>
+            <option>NZ Citizen</option>
+            <option>Partner Visa</option>
+            <option>Student Visa</option>
+            <option>Employer Sponsored Visa</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <label>Tell us about your next move…</label>
+          <textarea class="form-control" rows="4"></textarea>
+        </div>
+      </div>
+      <button class="btn-submit mt-3" type="submit">Submit Profile</button>
+    </form>
+  </section>
+
+  <!-- Employer Form -->
+  <section id="employerForm" class="form-section">
+    <h3>Tell us about the talent you’re looking for.</h3>
+    <p>We partner with ambitious Australian brands and agencies to help them build exceptional digital teams.</p>
+    <form>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label>Your Name *</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Company Name *</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>LinkedIn Profile</label>
+          <input type="url" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label>Work Email Address *</label>
+          <input type="email" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Phone Number</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="col-12">
+          <label>Tell us about the role or team you’re hiring for…</label>
+          <textarea class="form-control" rows="4"></textarea>
+        </div>
+        <div class="col-md-6">
+          <label>Do you have a Job Description to share?</label>
+          <input type="file" class="form-control" accept=".pdf,.doc,.docx">
+        </div>
+        <div class="col-md-6 d-flex align-items-end">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="callCheck">
+            <label class="form-check-label" for="callCheck">
+              I’d like to book a 30-minute Discovery Call
+            </label>
+          </div>
+        </div>
+      </div>
+      <button class="btn-submit mt-3" type="submit">Let’s Connect</button>
+      <small class="d-block mt-2 text-muted">We’ll respond within 24 hours to review your brief and confirm next steps.</small>
+    </form>
+  </section>
+
+  <!-- Map -->
+  <section class="map">
+    <iframe src="https://www.google.com/maps?q=Melbourne%20VIC%20Australia&output=embed"></iframe>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const jobBtn = document.getElementById('jobSeekerBtn');
+    const empBtn = document.getElementById('employerBtn');
+    const jobForm = document.getElementById('jobSeekerForm');
+    const empForm = document.getElementById('employerForm');
+
+    function switchForm(showForm, hideForm, activeBtn, inactiveBtn) {
+      hideForm.classList.remove('active');
+      setTimeout(() => {
+        hideForm.style.display = 'none';
+        showForm.style.display = 'block';
+        setTimeout(() => showForm.classList.add('active'), 50);
+      }, 400);
+      activeBtn.classList.add('active');
+      inactiveBtn.classList.remove('active');
+    }
+
+    jobBtn.addEventListener('click', () => {
+      switchForm(jobForm, empForm, jobBtn, empBtn);
+    });
+
+    empBtn.addEventListener('click', () => {
+      switchForm(empForm, jobForm, empBtn, jobBtn);
+    });
+
+    // Initial visibility
+    empForm.style.display = 'none';
+  </script>
+</body>
+</html>

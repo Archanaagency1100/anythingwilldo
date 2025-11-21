@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arc Slider</title>
+
+<style>
+/* -------------------------
+   SCSS COMPILED TO CSS
+   ------------------------- */
+
+.arc-slider-section {
+  background: #333;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.arc-slider-section .slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.arc-slide {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  transform-origin: center center;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* LEFT */
+.arc-slide.left {
+  opacity: 1;
+  pointer-events: auto;
+  left: calc(50% - 600px);
+  top: calc(50% - 210px);
+  transform: rotate(-60deg);
+}
+
+/* CENTER */
+.arc-slide.center {
+  opacity: 1;
+  pointer-events: auto;
+  left: calc(50% - 210px);
+  top: calc(50% - 210px);
+  transform: rotate(0deg);
+}
+
+/* RIGHT */
+.arc-slide.right {
+  opacity: 1;
+  pointer-events: auto;
+  left: calc(50% + 180px);
+  top: calc(50% - 210px);
+  transform: rotate(60deg);
+}
+</style>
+
+</head>
+<body>
+
+<section class="arc-slider-section">
+  <div class="slider-wrapper" id="arcSlider"></div>
+</section>
+
+<script>
+/* --------------------------
+   6 Slides Data
+   -------------------------- */
+const slidesData = [
+  { color: "#ffc107", text: "Easy to Use" },
+  { color: "#0099e6", text: "Actual Rotating Slider" },
+  { color: "#ff5733", text: "Creative Arc Design" },
+  { color: "#8e44ad", text: "Smooth Animations" },
+  { color: "#2ecc71", text: "Modern UI" },
+  { color: "#ff0066", text: "Supports 6 Slides" }
+];
+
+const slider = document.getElementById("arcSlider");
+
+/* Create slides */
+slidesData.forEach((s) => {
+  let div = document.createElement("div");
+  div.className = "arc-slide";
+  div.style.background = s.color;
+  div.innerHTML = `<div>${s.text}</div>`;
+  slider.appendChild(div);
+});
+
+let index = 0;
+
+function updateSlides() {
+  const all = document.querySelectorAll(".arc-slide");
+  all.forEach(s => s.className = "arc-slide"); // reset
+
+  const left = all[(index) % 6];
+  const center = all[(index + 1) % 6];
+  const right = all[(index + 2) % 6];
+
+  left.classList.add("left");
+  center.classList.add("center");
+  right.classList.add("right");
+}
+
+updateSlides();
+
+/* Auto rotate clockwise */
+setInterval(() => {
+  index = (index + 1) % 6;
+  updateSlides();
+}, 2500);
+</script>
+
+</body>
+</html>

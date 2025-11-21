@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Font link------------- -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- bootstrap link--------------- -->
+  <link rel="stylesheet" href="../static/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+  <!-- CSS Link---------- -->
+  <link rel="stylesheet" href="../static/css/style.css">
+  <!-- Bootstrap Icons-------------- -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- ----Bootstrap animation link----------------- -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- <------swiper codepen slidder--- -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        #whatWeDoSection {
+  background: #fafafa;
+  /* Project rows with logo to the LEFT of text */
+  /* Right-side single image */
+}
+#whatWeDoSection .sub-header {
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  color: #222;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+#whatWeDoSection .section-header {
+  color: #222;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+#whatWeDoSection .project-row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+#whatWeDoSection .project-row .logo {
+  width: 55px;
+  height: 55px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+#whatWeDoSection .project-row .project-title {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #222;
+  margin-bottom: 0.25rem;
+}
+#whatWeDoSection .project-row .project-text {
+  color: #555;
+  margin: 0;
+  line-height: 1.55;
+}
+#whatWeDoSection .slider-container {
+  width: 320px;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+#whatWeDoSection .slider-container .card-slider {
+  display: flex;
+  flex-direction: column;
+  animation: scrollDown 20s linear infinite;
+}
+#whatWeDoSection .slider-container .card-slider .card-item {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+#whatWeDoSection .slider-container .card-slider .card-item .card {
+  width: 90%;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+#whatWeDoSection .slider-container .card-slider .card-item .card img {
+  width: 100%;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#whatWeDoSection .slider-container:hover .card-slider {
+  animation-play-state: paused;
+}
+@keyframes scrollDown {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+
+#ourprojects .clrtxt .redtxt {
+  color: red;
+}
+#ourprojects .project-box-container {
+  padding: 10px 15px;
+}
+#ourprojects .project-box-container .project-box {
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding: 15px 26px;
+}
+#ourprojects .project-box-container .project-box h3 {
+  font-size: 1.5rem;
+}
+#ourprojects .project-box-container .project-box p {
+  font-size: 0.9rem;
+}
+#ourprojects .slider-container {
+  width: 320px;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+#ourprojects .slider-container .card-slider {
+  display: flex;
+  flex-direction: column;
+  animation: scrollDown 20s linear infinite;
+}
+#ourprojects .slider-container .card-slider .card-item {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+#ourprojects .slider-container .card-slider .card-item .card {
+  width: 90%;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+#ourprojects .slider-container .card-slider .card-item .card img {
+  width: 100%;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#ourprojects .slider-container:hover .card-slider {
+  animation-play-state: paused;
+}
+@keyframes scrollDown {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+    </style>
+</head>
+<body>
+    <!-- --------------what we dosection-- -->
+
+  <section id="whatWeDoSection" class="mt-3">
+    <div class="container-fluid pt-5">
+      <div class="row g-4 align-items-start">
+
+
+
+        <!-- Left column: text + logos -->
+        <div class="col-lg-8">
+          <div class="sub-header text-center text-md-start clrtxt">what we do</div>
+          <h3 class="section-header text-center text-md-start">Our NGO initiatives in India empower underprivileged
+            children through education, skill development, and community upliftment programs</h3>
+
+          <div class="project-row">
+            <img src="image.jpg" alt="Logo" class="logo">
+            <div>
+              <div class="project-title">Project Educate: Bridging the Education Gap</div>
+              <p class="project-text">Each one teaches one. This initiative believes age is not a limit for those
+                willing to teach or learn; we can either teach children or help them get an education.</p>
+            </div>
+          </div>
+          <hr class="my-3">
+
+          <div class="project-row">
+            <img src="image.jpg" alt="Logo" class="logo">
+            <div>
+              <div class="project-title">Project Life: “Health is Wealth” & holistic support</div>
+              <p class="project-text">Under this project AWDORG provides hygiene awareness, medical support, sanitary
+                pads distribution, blood donation camps, ambulances, free tests, blanket & sweater drives for
+                under-privileged communities, especially during & post COVID-19.</p>
+            </div>
+          </div>
+          <hr class="my-3">
+
+          <div class="project-row">
+            <img src="../assets/project educate.png" alt="Logo" class="logo">
+            <div>
+              <div class="project-title">Project Educate: Bridging the Education Gap</div>
+              <p class="project-text">Each one teaches one. We can educate those around us, teach children, or help them
+                access education.</p>
+            </div>
+          </div>
+          <hr class="my-3">
+        </div>
+
+        <div class="col-lg-4 d-flex justify-content-center">
+
+          <div class="slider-container">
+            <div class="card-slider">
+              <!-- Cards (doubled for seamless looping) -->
+              <div class="card-item">
+                <div class="card"><img src="../assets/MVIMG_20250614_133325_1.jpg"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/New 1_MDkxBXmR3eShaaqK68VslQ.png"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/New Aid-Flood-Victims605408951.png"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/MVIMG_20250614_133325_1.jpg"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/New 1_MDkxBXmR3eShaaqK68VslQ.png"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/New Aid-Flood-Victims605408951.png"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/MVIMG_20250614_133325_1.jpg"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/New 1_MDkxBXmR3eShaaqK68VslQ.png"></div>
+              </div>
+              <!-- duplicate set for smooth looping -->
+              <div class="card-item">
+                <div class="card"><img src="../assets/New Aid-Flood-Victims605408951.png"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/MVIMG_20250614_133325_1.jpg"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/New 1_MDkxBXmR3eShaaqK68VslQ.png"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/New Aid-Flood-Victims605408951.png"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/MVIMG_20250614_133325_1.jpg"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/New 1_MDkxBXmR3eShaaqK68VslQ.png"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/New Aid-Flood-Victims605408951.png"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="../assets/MVIMG_20250614_133325_1.jpg"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+  <section id="whatWeDoSection" class="mb-3">
+    <div class="container-fluid py-5">
+      <div class="row g-4 align-items-start">
+
+
+        <div class="col-lg-4 d-flex justify-content-center">
+          <!-- <img src="https://www.anythingwilldo.org/wp-content/uploads/2025/08/2.jpg" class="img-fluid side-image" alt="Supporting education"> -->
+          <div class="slider-container">
+            <div class="card-slider">
+              <!-- Cards (doubled for seamless looping) -->
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=1"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=2"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=3"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=4"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=5"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=6"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=7"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=8"></div>
+              </div>
+              <!-- duplicate set for smooth looping -->
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=1"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=2"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=3"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=4"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=5"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=6"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=7"></div>
+              </div>
+              <div class="card-item">
+                <div class="card"><img src="https://picsum.photos/400/200?random=8"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Left column: text + logos -->
+        <div class="col-lg-8">
+
+          <div class="project-row">
+            <img src="image.jpg" alt="Logo" class="logo">
+            <div>
+              <div class="project-title">Project Educate: Bridging the Education Gap</div>
+              <p class="project-text">Each one teaches one. This initiative believes age is not a limit for those
+                willing to teach or learn; we can either teach children or help them get an education.</p>
+            </div>
+          </div>
+          <hr class="my-3">
+          <div class="project-row">
+            <img src="image.jpg" alt="Logo" class="logo">
+            <div>
+              <div class="project-title">Project Educate: Bridging the Education Gap</div>
+              <p class="project-text">Each one teaches one. This initiative believes age is not a limit for those
+                willing to teach or learn; we can either teach children or help them get an education.</p>
+            </div>
+          </div>
+          <hr class="my-3">
+
+          <div class="project-row">
+            <img src="image.jpg" alt="Logo" class="logo">
+            <div>
+              <div class="project-title">Project Educate: Bridging the Education Gap</div>
+              <p class="project-text">Each one teaches one. This initiative believes age is not a limit for those
+                willing to teach or learn; we can either teach children or help them get an education.</p>
+            </div>
+          </div>
+          <hr class="my-3">
+
+          <div class="project-row">
+            <img src="../assets/project educate.png" alt="Logo" class="logo">
+            <div>
+              <div class="project-title">Project Educate: Bridging the Education Gap</div>
+              <p class="project-text">Each one teaches one. We can educate those around us, teach children, or help them
+                access education.</p>
+            </div>
+          </div>
+          <hr class="my-3">
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- -----------------another one -->
+   <section id="ourprojects" class="my-3">
+  <div class="container-fluid py-5">
+    <div class="row g-4 align-items-start">
+   
+      <div class="col-lg-8">
+        <h3 class="heading mb-2 clrtxt">Our Projects</h3>
+        
+       <p>At Anything Will Do (AWDORG Foundation), every project is built around one belief — small acts of kindness can create lasting change.
+Our initiatives focus on education, hunger relief, skill development, and community empowerment, helping people move from survival to self-reliance.</p><br>
+<h4 class="d-block clrtxt"><span class="redtxt">Activities</span> <span class="text-dark"> &</span> Impact</h4>
+       <div class="project-box-container">
+        <div class="row">
+          <div class="col-lg-6 col-sm-12 py-2">
+<div class="project-box">
+        <h3>Project Educate</h3>
+      <p>
+      Every child deserves the right to education and opportunity.
+      <span class="collapse" id="moreText">
+        Through our NGO programs, we provide free digital literacy,
+        nutritious meals, and counselling support so children can learn,
+        grow, and build a brighter future.
+      </span>
+      <a class="text-primary" data-bs-toggle="collapse" href="#moreText" role="button" aria-expanded="false" aria-controls="moreText">
+        ...Read More
+      </a>
+    </p>
+ 
+      </div>
+          </div>
+
+<div class="col-lg-6 col-sm-12 py-2">
+<div class="project-box">
+        <h3>Project Educate</h3>
+      <p>
+      Every child deserves the right to education and opportunity.
+      <span class="collapse" id="moreText">
+        Through our NGO programs, we provide free digital literacy,
+        nutritious meals, and counselling support so children can learn,
+        grow, and build a brighter future.
+      </span>
+      <a class="text-primary" data-bs-toggle="collapse" href="#moreText" role="button" aria-expanded="false" aria-controls="moreText">
+        ...Read More
+      </a>
+    </p>
+ 
+      </div>
+          </div>
+
+          <div class="col-lg-6 col-sm-12 py-2">
+<div class="project-box">
+        <h3>Project Educate</h3>
+      <p>
+      Every child deserves the right to education and opportunity.
+      <span class="collapse" id="moreText">
+        Through our NGO programs, we provide free digital literacy,
+        nutritious meals, and counselling support so children can learn,
+        grow, and build a brighter future.
+      </span>
+      <a class="text-primary" data-bs-toggle="collapse" href="#moreText" role="button" aria-expanded="false" aria-controls="moreText">
+        ...Read More
+      </a>
+    </p>
+ 
+      </div>
+          </div>
+
+          <div class="col-lg-6 col-sm-12 py-2">
+<div class="project-box">
+        <h3>Project Educate</h3>
+      <p>
+      Every child deserves the right to education and opportunity.
+      <span class="collapse" id="moreText">
+        Through our NGO programs, we provide free digital literacy,
+        nutritious meals, and counselling support so children can learn,
+        grow, and build a brighter future.
+      </span>
+      <a class="text-primary" data-bs-toggle="collapse" href="#moreText" role="button" aria-expanded="false" aria-controls="moreText">
+        ...Read More
+      </a>
+    </p>
+ 
+      </div>
+          </div>
+
+        </div>
+
+      
+
+     
+
+       </div>
+       
+       
+      </div>
+
+      
+      <div class="col-lg-4 d-flex justify-content-center">
+        
+          <div  class="slider-container">
+  <div class="card-slider">
+    
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=1"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=2"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=3"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=4"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=5"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=6"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=7"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=8"></div></div>
+   
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=1"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=2"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=3"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=4"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=5"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=6"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=7"></div></div>
+    <div class="card-item"><div class="card"><img src="https://picsum.photos/400/200?random=8"></div></div>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

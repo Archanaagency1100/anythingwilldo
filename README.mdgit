@@ -1,0 +1,1 @@
+"# anythingwilldo"  initgit add README.mdgit commit -m "first commit"git branch -M maingit remote add origin https://github.com/Archanaagency1100/anythingwilldo.gitgit push -u origin main
